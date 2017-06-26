@@ -13,6 +13,7 @@
         <input type="text" ng-model="nidc.searchTerm"/>
         <button ng-click="nidc.listdownFoundItems(nidc.searchTerm)">Narrow It Down For Me!</button>
         <found-items items="nidc.foundItems" my-nidc="nidc" on-remove="nidc.removeItem(index)"></found-items>
+        <span ng-if="nidc.foundItems.length == 0> {{ nidc.errorMessage }} </span>
     </div>
   </body>
 </html>

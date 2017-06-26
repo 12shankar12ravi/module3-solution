@@ -18,12 +18,16 @@ nidc.removeItem = function (index){
 }
 
 nidc.listdownFoundItems=function(searchTerm){
-  (MenuSearchService.getMatchedMenuItems(searchTerm)).then(
-    function(response){
-      nidc.foundItems = response;
-    }
-  );
-
+  if( searchTerm.length>0 && searchTerm!=null){
+    (MenuSearchService.getMatchedMenuItems(searchTerm)).then(
+      function(response){
+        nidc.foundItems = response;
+      }
+    );
+  }else{
+     nidc.foundItems = [];
+     nidc.errorMessage="Nothing Found";
+  }
 }
 
 }
