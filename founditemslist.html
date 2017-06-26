@@ -1,0 +1,8 @@
+<table>
+    <tr ng-repeat="item in items">
+      <td> {{ item.short_name }} </td>
+      <td> {{ item.name }} </td>
+      <td>{{ item.description }} </td>
+      <td><button ng-click="nidc1.removeItem({index : $index});">Don't want this one</button></td>
+    </tr>
+</table>
