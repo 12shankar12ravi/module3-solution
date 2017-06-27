@@ -5,6 +5,26 @@ angular.module('NarrrowItDownApp',[])
 .service('MenuSearchService',MenuSearchService)
 .directive('foundItems',foundItems);
 
+function foundItems(){
+  var ddo={
+     templateUrl : 'founditemslist.html',
+     scope:{
+       items: '<',
+       onRemove: '&'
+     },
+     controller:NarrowItDownDirectiveController,
+     controllerAs: 'niddir',
+     bindToController: true,
+  };
+
+  return ddo;
+}
+
+function NarrowItDownDirectiveController(){
+ var niddir1=this;
+}
+
+
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService){
 var nidc=this;
@@ -14,7 +34,6 @@ nidc.foundItems = [];
 
 nidc.removeItem = function (index){
   (nidc.foundItems).splice(index,1);
-  console.log(nidc.foundItems);
 }
 
 nidc.listdownFoundItems=function(searchTerm){
@@ -30,19 +49,6 @@ nidc.listdownFoundItems=function(searchTerm){
   }
 }
 
-}
-
-function foundItems(){
-  var ddo={
-     templateUrl : 'founditemslist.html',
-     scope:{
-       items: '<',
-       nidc1: '=myNidc',
-       onRemove: '&'
-     }
-  };
-
-  return ddo;
 }
 
 
